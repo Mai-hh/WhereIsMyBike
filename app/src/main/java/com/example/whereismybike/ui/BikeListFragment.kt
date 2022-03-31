@@ -7,18 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import com.example.whereismybike.R
-import com.example.whereismybike.TestFile
 import com.example.whereismybike.databinding.BikeAddressListFragmentBinding
-import com.example.whereismybike.model.BikeAddress
-import com.example.whereismybike.ui.adapter.BikeAddressListAdapter
+import com.example.whereismybike.model.Bike
+import com.example.whereismybike.ui.adapter.BikeListAdapter
 import com.example.whereismybike.ui.viewmodel.BikeAddressListViewModel
 
 private const val TAG = "BikeAddressListFragment"
 class BikeAddressListFragment : Fragment() {
 
-    private lateinit var bikeAddresses: List<BikeAddress>
+    private lateinit var bikeAddresses: List<Bike>
 
     private val viewModel: BikeAddressListViewModel by activityViewModels()
 
@@ -29,7 +26,7 @@ class BikeAddressListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bikeAddresses = viewModel.bikeAddresses.value!!
+        bikeAddresses = viewModel.bikes.value!!
     }
 
     override fun onCreateView(
@@ -37,6 +34,8 @@ class BikeAddressListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.d(TAG, "onCreateView" )
+
         _binding = BikeAddressListFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -44,15 +43,32 @@ class BikeAddressListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "onViewCreated" )
-        val adapter = BikeAddressListAdapter(bikeAddresses)
+        val adapter = BikeListAdapter(bikeAddresses)
         binding.recycleView.adapter = adapter;
-        viewModel.bikeAddresses.observe(viewLifecycleOwner) {
+        viewModel.bikes.observe(viewLifecycleOwner) {
             adapter.setList(it)
         }
 
         binding.addBtn.setOnClickListener {
             viewModel.addBikeAddress()
-            Log.d(TAG, "add" )
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.addBikeAddress()
+        Log.d(TAG, "Fragment OnStart" )
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        Log.d(TAG, "Fragment OnStop" )
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        Log.d(TAG, "Fragment OnResume" )
     }
 }
