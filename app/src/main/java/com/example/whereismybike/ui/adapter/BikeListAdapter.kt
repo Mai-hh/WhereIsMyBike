@@ -1,18 +1,14 @@
 package com.example.whereismybike.ui.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.whereismybike.databinding.BikeAddressListFragmentBinding
 import com.example.whereismybike.databinding.ListItemBikeAddressLayoutBinding
-import com.example.whereismybike.model.BikeAddress
-import com.example.whereismybike.ui.viewmodel.BikeAddressListViewModel
+import com.example.whereismybike.model.Bike
 
-class BikeAddressListAdapter(
-    private var bikeAddresses: List<BikeAddress>
-) : RecyclerView.Adapter<BikeAddressListAdapter.BikeAddressViewHolder>() {
+class BikeListAdapter(
+    private var bikeAddresses: List<Bike>
+) : RecyclerView.Adapter<BikeListAdapter.BikeAddressViewHolder>() {
 
     class BikeAddressViewHolder(val binding: ListItemBikeAddressLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -31,7 +27,7 @@ class BikeAddressListAdapter(
     override fun onBindViewHolder(holder: BikeAddressViewHolder, position: Int) {
         val address = bikeAddresses[position]
         holder.binding.apply {
-            bikeAddressText.text = address.tick
+            bikeAddressText.text = address.dateTime
         }
     }
 
@@ -39,7 +35,7 @@ class BikeAddressListAdapter(
         return bikeAddresses.size
     }
 
-    fun setList(newList: List<BikeAddress>) {
+    fun setList(newList: List<Bike>) {
         bikeAddresses = newList
         notifyDataSetChanged()
     }
