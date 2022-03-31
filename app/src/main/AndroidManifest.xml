@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhereIsMyBike">
         <activity
+            android:name=".TestActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -19,6 +22,17 @@
             </intent-filter>
         </activity>
 
+        <receiver
+            android:name=".widget.WhereBikeAppWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider_info" />
+        </receiver>
     </application>
 
 </manifest>

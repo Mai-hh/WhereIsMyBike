@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WhereIsMyBike</string>
+    <string name="widget_bike_address">East 12</string>
 </resources>
