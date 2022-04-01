@@ -56,7 +56,8 @@ class BikeAddressListFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        viewModel.addBikeAddress()
+        viewModel.addBike
+        Address()
         Log.d(TAG, "Fragment OnStart" )
     }
 
