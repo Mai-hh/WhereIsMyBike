@@ -13,10 +13,13 @@ interface BikeDao {
     @Query("SELECT * FROM bike_db")
     fun getAllBikes(): Flow<List<Bike>>
 
+    @Query("SELECT * FROM bike_db WHERE id = :id")
+    fun getBikeById(id: Int): Flow<Bike>
+
     @Insert
-    fun insertBike(bike: Bike)
+    suspend fun insertBike(bike: Bike)
 
     @Delete
-    fun deleteBike(bike: Bike)
+    suspend fun deleteBike(bike: Bike)
 
 }

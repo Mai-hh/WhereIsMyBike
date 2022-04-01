@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.whereismybike.model.Bike
 
-@Database(entities = [Bike::class], version = 1, exportSchema = false)
+@Database(entities = [Bike::class], version = 2, exportSchema = false)
 abstract class BikeDatabase : RoomDatabase() {
 
     abstract val bikeDao: BikeDao
@@ -22,7 +22,9 @@ abstract class BikeDatabase : RoomDatabase() {
                     context.applicationContext,
                     BikeDatabase::class.java,
                     "bike_db"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
 
                 INSTANCE = instance
 
