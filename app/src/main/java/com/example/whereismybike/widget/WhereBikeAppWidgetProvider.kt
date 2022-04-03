@@ -19,10 +19,11 @@ class WhereBikeAppWidgetProvider : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-
+        Log.d(TAG, "onUpdate")
         val pendingIntent = Intent(context, MainActivity::class.java)
             .putExtra("Clicked", "Clicked")
             .let {
+                Log.d(TAG, "sent intent")
                 PendingIntent.getActivity(context, 0, it, 0)
             }
 

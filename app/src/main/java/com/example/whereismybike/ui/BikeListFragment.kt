@@ -48,9 +48,18 @@ class BikeListFragment : Fragment() {
 
         binding.apply {
             recycleView.adapter = adapter
-            addBtn.setOnClickListener {
-                viewModel.addBikeAddress()
-            }
+//            addBtn?.setOnClickListener {
+//                viewModel.addBikeAddress()
+//            }
+        }
+    }
+
+    override fun onStart() {
+        // 接收 Widget 点击事件创建一条记录
+        super.onStart()
+        arguments?.getString("Bike")?.let {
+            viewModel.addBikeAddress()
+            Log.d(TAG, it)
         }
     }
 }

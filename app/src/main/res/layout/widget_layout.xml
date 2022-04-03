@@ -6,7 +6,6 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:theme="@android:style/Theme.DeviceDefault.DayNight"
         android:orientation="horizontal"
         android:layout_width="300dp"
         android:layout_height="100dp"

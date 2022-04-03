@@ -15,11 +15,11 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23822463768115942" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.21422101449275363" />
         <entry key="app/src/main/res/layout/bike_address_list_fragment.xml" value="0.3137054443359375" />
+        <entry key="app/src/main/res/layout/bike_list_fragment.xml" value="0.2558876811594203" />
         <entry key="app/src/main/res/layout/list_item_bike_address_layout.xml" value="0.335" />
         <entry key="app/src/main/res/layout/new_app_widget.xml" value="0.13728470111448834" />
         <entry key="app/src/main/res/layout/widget_bike_view.xml" value="0.33106884057971014" />
         <entry key="app/src/main/res/layout/widget_layout.xml" value="0.16475095785440613" />
-        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.161" />
       </map>
     </option>
   </component>

@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface BikeDao {
 
-    @Query("SELECT * FROM bike_db")
+    @Query("SELECT * FROM bike_db ORDER BY id DESC")
     fun getAllBikes(): Flow<List<Bike>>
 
     @Query("SELECT * FROM bike_db WHERE id = :id")
